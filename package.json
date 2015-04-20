@@ -1,6 +1,6 @@
 {
   "name": "nibbler-exec",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Fancy exec for nibbler",
   "main": "index.js",
   "scripts": {
