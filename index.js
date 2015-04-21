@@ -10,9 +10,13 @@ module.exports = function run(cmd, options, cb) {
 
   var opts = options || {}
   var runner = opts.runner || child_process
-  var child = runner.spawn('/bin/sh', ['-c', cmd], options)
+
+  if (options.sudo)
+    cmd = 'sudo ' + cmd
 
   console.log('running:', cmd)
+
+  var child = runner.spawn('/bin/sh', ['-c', cmd], options)
 
   // TODO: make this output something fancier
   if (child.stdout) child.stdout.pipe(process.stdout)
